@@ -1,3 +1,5 @@
+from engine import WorkflowEngine
+
 def show_menu():
     print("\nWORKFLOW ORCHESTRATION ENGINE")
     print("1.Backup Workflow")
@@ -5,23 +7,25 @@ def show_menu():
     print("3. Deployment Workflow")
     print("4. Exit")
 
-    while True:
-        show_menu()
+engine = WorkflowEngine()
 
-        choice = input("Select a workflow: ")
+while True:
+    show_menu()
 
-        if choice == "1":
-            print("Running Backup Workflow...")
+    choice = input("Select a workflow: ")
 
-        elif choice == "2":
-            print("Running Data Processing Workflow...")
+    if choice == "1":
+        engine.run_workflow("Backup")
 
-        elif choice == "3":
-            print("Running Deployment Workflow...")
+    elif choice == "2":
+        engine.run_workflow("Data Processing")
 
-        elif choice == "4":
-            print("Exiting Workflow Orchestration Engine. Goodbye!")
-            break
+    elif choice == "3":
+        engine.run_workflow("Deployment")
 
-        else:
-            print("Invalid choice. Please select a valid workflow.")
+    elif choice == "4":
+        print("Exiting Workflow Orchestration Engine. Goodbye!")
+        break
+
+    else:
+        print("Invalid choice. Please select a valid workflow.")
