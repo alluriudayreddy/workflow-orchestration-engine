@@ -14,12 +14,14 @@ class WorkflowEngine:
         if workflow:
             self.tracker.set_status(workflow_name, "running")
 
-            print(f"Starting {workflow}...")
-            print(f"Status: {self.tracker.get_status(workflow_name)}")
+            print(f"\nStarting {workflow_name} workflow...\n")
+
+            for task in workflow:
+                print(f"Executing Task: {task}")
 
             self.tracker.set_status(workflow_name, "completed")
 
-            print(f"Status: {self.tracker.get_status(workflow_name)}")
+            print(f"\nWorkflow Status: {self.tracker.get_status(workflow_name)}")
 
         else:
             print("workflow not found.")
