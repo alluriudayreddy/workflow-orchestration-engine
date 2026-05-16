@@ -2,7 +2,7 @@ from engine import WorkflowEngine
 
 def show_menu():
     print("\nWORKFLOW ORCHESTRATION ENGINE")
-    print("1.Backup Workflow")
+    print("1. Backup Workflow")
     print("2. Data Processing Workflow")
     print("3. Deployment Workflow")
     print("4. Exit")
