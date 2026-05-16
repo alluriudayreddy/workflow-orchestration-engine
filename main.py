@@ -15,13 +15,13 @@ while True:
     choice = input("Select a workflow: ")
 
     if choice == "1":
-        engine.run_workflow("Backup")
+        engine.run_workflow("backup")
 
     elif choice == "2":
-        engine.run_workflow("Data Processing")
+        engine.run_workflow("data_processing")
 
     elif choice == "3":
-        engine.run_workflow("Deployment")
+        engine.run_workflow("deployment")
 
     elif choice == "4":
         print("Exiting Workflow Orchestration Engine. Goodbye!")
