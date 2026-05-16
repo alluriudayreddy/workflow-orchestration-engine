@@ -1,11 +1,11 @@
+from workflows.backup_workflow import backup_workflow
+
 class WorkflowManager:
     
     def __init__(self):
 
         self.workflows = {
-            "backup": "Backup Workflow",
-            "data_processing": "Data Processing Workflow",
-            "deployment": "Deployment Workflow"
+            "backup": backup_workflow
         }
 
     def get_workflow(self, workflow_name):
