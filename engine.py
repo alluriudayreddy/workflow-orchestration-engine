@@ -1,10 +1,12 @@
 from workflow_manager import WorkflowManager
 from status_tracker import StatusTracker
+from task_executor import TaskExecutor
 
 class WorkflowEngine:
 
     def __init__(self):
-        
+        self.executor = TaskExecutor()
+
         self.manager = WorkflowManager()
         self.tracker = StatusTracker()
 
@@ -17,7 +19,7 @@ class WorkflowEngine:
             print(f"\nStarting {workflow_name} workflow...\n")
 
             for task in workflow:
-                print(f"Executing Task: {task}")
+                self.executor.execute_task(task)
 
             self.tracker.set_status(workflow_name, "completed")
 
