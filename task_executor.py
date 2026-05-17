@@ -91,7 +91,7 @@ class TaskExecutor:
             time.sleep(2)
             print("Exporting final processing report...")
 
-        elif task == "validate Deployment Config":
+        elif task == "Validate Deployment Config":
 
             if should_fail:
                 raise Exception("Deployment Config validation Failed")
