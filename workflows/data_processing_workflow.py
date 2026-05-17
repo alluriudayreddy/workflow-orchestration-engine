@@ -1,6 +1,7 @@
 data_processing_workflow = [
-    "Load Data",
-    "Validate Data",
-    "Transform Data",
-    "Export Results"
+    "Load CSV Data",
+    "Clean Missing Values",
+    "Transform Records",
+    "Generate Analytics",
+    "Export Final Report"
 ]
