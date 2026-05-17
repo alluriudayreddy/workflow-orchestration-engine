@@ -64,6 +64,11 @@ class WorkflowEngine:
                 print(f"Final Status: {self.tracker.get_status(workflow_name)}")
                 print(f"Total tasks: {len(workflow)}")
 
+                write_log(f"Workflow Summary", "INFO")
+                write_log(f"Workflow Name: {workflow_name}", "INFO")
+                write_log(f"Final Status: {self.tracker.get_status(workflow_name)}", "INFO")
+                write_log(f"Total Tasks: {len(workflow)}", "INFO")
+
             except Exception as error:
 
                 self.tracker.set_status(workflow_name, "failed")
@@ -78,6 +83,11 @@ class WorkflowEngine:
                 print(f"Workflow Name: {workflow_name}")
                 print(f"Final Status: {self.tracker.get_status(workflow_name)}")
                 print(f"Total Tasks: {len(workflow)}")
+                
+                write_log(f"Workflow Summary", "INFO")
+                write_log(f"Workflow Name: {workflow_name}", "INFO")
+                write_log(f"Final Status: {self.tracker.get_status(workflow_name)}", "INFO")
+                write_log(f"Total Tasks: {len(workflow)}", "INFO")
 
         else:
 
