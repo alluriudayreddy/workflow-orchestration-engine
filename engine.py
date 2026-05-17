@@ -41,6 +41,10 @@ class WorkflowEngine:
 
                         except Exception as error:
                             retry_count += 1
+
+                            print(f"Retrying {task}...Attempt {retry_count}")
+                            write_log(f"Retrying {task}...Attempt {retry_count}", "WARNING")
+
                             print(f"Task Failed: {error}")
                             write_log(f"Task Failed: {error}", "ERROR")
 
@@ -54,6 +58,12 @@ class WorkflowEngine:
 
                 print(f"\nWorkflow Status: {self.tracker.get_status(workflow_name)}")
 
+                print("\nWorkflow Summary")
+                print("-----------------")
+                print(f"Workflow Name: {workflow_name}")
+                print(f"Final Status: {self.tracker.get_status(workflow_name)}")
+                print(f"Total tasks: {len(workflow)}")
+
             except Exception as error:
 
                 self.tracker.set_status(workflow_name, "failed")
@@ -62,6 +72,12 @@ class WorkflowEngine:
                 print(f"\nWorkflow Failed: {error}")
 
                 write_log(f"{workflow_name} workflow failed: {error}", "ERROR")
+
+                print("\nWorkflow Summary")
+                print("----------------")
+                print(f"Workflow Name: {workflow_name}")
+                print(f"Final Status: {self.tracker.get_status(workflow_name)}")
+                print(f"Total Tasks: {len(workflow)}")
 
         else:
 
