@@ -38,7 +38,9 @@ class WorkflowEngine:
 
                         try:
                             self.executor.execute_task(task)
-                            write_log(f"Executing task: {task}", "INFO")
+                            write_log(f"Task Started: {task}", "INFO")
+                            write_log(f"Executing Task: {task}", "INFO")
+                            write_log(f"Task Finished: {task}", "SUCCESS")
                             break
 
                         except Exception as error:
