@@ -51,7 +51,42 @@ class TaskExecutor:
             print("Saving backup logs...")
 
 
-        else:
+        elif task == "Load CSV Data":
+
+            if should_fail:
+                raise Exception("CSV Loading Failed")
 
             time.sleep(2)
-            print(f"Executing Task: {task}")
+            print("Loading CSV dataset...")
+
+        elif task == "Clean Missing Values":
+
+            if should_fail:
+                raise Exception("Data Cleaning Failed")
+            
+            time.sleep(2)
+            print("Cleaning missing values...")
+
+        elif task == "Transform Records":
+            
+            if should_fail:
+                raise Exception("Data Transformation Failed")
+
+            time.sleep(2)
+            print("Transforming datasets records...")
+
+        elif task == "Generate Analytics":
+            
+            if should_fail:
+                raise Exception("Analytics Generation Failed")
+
+            time.sleep(2)
+            print("Generating analytics report...")
+
+        elif task == "Export Final Report":
+            
+            if should_fail:
+                raise Exception("Report Export Failed")
+
+            time.sleep(2)
+            print("Exporting final processing report...")
