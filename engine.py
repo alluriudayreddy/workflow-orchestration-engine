@@ -1,7 +1,7 @@
 from workflow_manager import WorkflowManager
 from status_tracker import StatusTracker
 from task_executor import TaskExecutor
-from helpers import write_log
+from helpers import write_log, log_seperator
 
 
 class WorkflowEngine:
@@ -18,6 +18,8 @@ class WorkflowEngine:
         workflow = self.manager.get_workflow(workflow_name)
 
         if workflow:
+
+            log_seperator()
 
             try:
 
@@ -69,6 +71,8 @@ class WorkflowEngine:
                 write_log(f"Final Status: {self.tracker.get_status(workflow_name)}", "INFO")
                 write_log(f"Total Tasks: {len(workflow)}", "INFO")
 
+                log_seperator()
+
             except Exception as error:
 
                 self.tracker.set_status(workflow_name, "failed")
@@ -83,12 +87,13 @@ class WorkflowEngine:
                 print(f"Workflow Name: {workflow_name}")
                 print(f"Final Status: {self.tracker.get_status(workflow_name)}")
                 print(f"Total Tasks: {len(workflow)}")
-                
+
                 write_log(f"Workflow Summary", "INFO")
                 write_log(f"Workflow Name: {workflow_name}", "INFO")
                 write_log(f"Final Status: {self.tracker.get_status(workflow_name)}", "INFO")
                 write_log(f"Total Tasks: {len(workflow)}", "INFO")
-
+                
+                log_seperator()
         else:
 
             print("workflow not found.")
