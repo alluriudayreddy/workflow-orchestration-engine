@@ -1,3 +1,5 @@
+import time
+
 class TaskExecutor:
 
     def execute_task(self, task):
@@ -8,7 +10,8 @@ class TaskExecutor:
 
             if should_fail:
                 raise Exception("Scan Failed")
-
+            
+            time.sleep(2)
             print("Scanning system files...")
 
 
@@ -17,6 +20,7 @@ class TaskExecutor:
             if should_fail:
                 raise Exception("Compression Failed")
 
+            time.sleep(2)
             print("Compressing backup files...")
 
 
@@ -25,6 +29,7 @@ class TaskExecutor:
             if should_fail:
                 raise Exception("Backup Creation Failed")
 
+            time.sleep(2)
             print("Creating backup archive...")
 
 
@@ -33,6 +38,7 @@ class TaskExecutor:
             if should_fail:
                 raise Exception("Backup Verification Failed")
 
+            time.sleep(2)
             print("Verifying backup integrity...")
 
 
@@ -41,6 +47,7 @@ class TaskExecutor:
             if should_fail:
                 raise Exception("Log Saving Failed")
 
+            time.sleep(2)
             print("Saving backup logs...")
 
 
