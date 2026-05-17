@@ -29,9 +29,24 @@ class WorkflowEngine:
 
                 for task in workflow:
 
-                    self.executor.execute_task(task)
+                    max_retries = 3
+                    retry_count = 0
 
-                    write_log(f"Executing Task: {task}", "INFO")
+                    while retry_count <= max_retries:
+
+                        try:
+                            self.executor.execute_task(task)
+                            write_log(f"Executing task: {task}", "INFO")
+                            break
+
+                        except Exception as error:
+                            retry_count += 1
+                            print(f"Task Failed: {error}")
+                            write_log(f"Task Failed: {error}", "ERROR")
+
+                            if retry_count > max_retries:
+                                raise Exception(f"{task} failed after retries")
+
 
                 self.tracker.set_status(workflow_name, "completed")
 
@@ -42,7 +57,7 @@ class WorkflowEngine:
             except Exception as error:
 
                 self.tracker.set_status(workflow_name, "failed")
-                print(f"Worklfow Status: {self.tracker.get_status(workflow_name)}")
+                print(f"Workflow Status: {self.tracker.get_status(workflow_name)}")
 
                 print(f"\nWorkflow Failed: {error}")
 
