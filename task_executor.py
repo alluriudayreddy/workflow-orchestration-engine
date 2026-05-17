@@ -90,3 +90,43 @@ class TaskExecutor:
 
             time.sleep(2)
             print("Exporting final processing report...")
+
+        elif task == "validate Deployment Config":
+
+            if should_fail:
+                raise Exception("Deployment Config validation Failed")
+            
+            time.sleep(2)
+            print("Validating deployment configuration...")
+
+        elif task == "Build Application":
+
+            if should_fail:
+                raise Exception("Application Build Failed")
+
+            time.sleep(2)
+            print("Building application artifacts...")
+
+        elif task == "Run Integration Tests":
+
+            if should_fail:
+                raise Exception("Integration Tests Failed")
+            
+            time.sleep(2)
+            print("Running integration tests...")
+
+        elif task == "Deploy To Production":
+
+            if should_fail:
+                raise Exception("Production Deployment Failed")
+
+            time.sleep(2)
+            print("Deploying application to production...")
+
+        elif task == "Monitor Deployment Health":
+
+            if should_fail:
+                raise Exception("Deployment Health Monitoring Failed")
+
+            time.sleep(2)
+            print("Monitoring deployment health...")
