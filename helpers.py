@@ -8,3 +8,6 @@ def write_log(message, level="INFO"):
 
     with open("logs/execution_log.txt", "a") as log_file:
         log_file.write(formatted_log + "\n")
+
+def log_separator():
+    write_log("=" * 40, "INFO")

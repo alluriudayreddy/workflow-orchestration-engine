@@ -53,4 +53,5 @@ class TaskExecutor:
 
         else:
 
+            time.sleep(2)
             print(f"Executing Task: {task}")
