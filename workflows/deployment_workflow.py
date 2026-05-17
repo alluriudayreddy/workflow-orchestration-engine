@@ -1,6 +1,7 @@
 deployment_workflow = [
-    "Validate Config",
+    "Validate Deployment Config",
     "Build Application",
-    "Deploy Service",
-    "Generate Deployment Report"
+    "Run Integration Tests",
+    "Deploy  To Protection",
+    "Monitor Deployment Health"
 ]
